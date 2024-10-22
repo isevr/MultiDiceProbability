@@ -28,9 +28,9 @@ Each colored die has a different threshold for success:
 
 | Die Color | Success Condition    | Success Probability |
 |-----------|----------------------|---------------------|
-| Blue      | Rolls 5 or higher     | 0.6 (60%)           |
-| Red       | Rolls 7 or higher     | 0.4 (40%)           |
-| Green     | Rolls 3 or higher     | 0.8 (80%)           |
+| Blue      | Rolls 6 or higher     | 0.5 (50%)           |
+| Red       | Rolls 4 or higher     | 0.7 (70%)           |
+| Green     | Rolls 8 or higher     | 0.3 (30%)           |
 
 The challenge is to calculate the probability of achieving **at least** a certain number of successes when rolling a specified number of these dice, given that each die has a different success probability.
 

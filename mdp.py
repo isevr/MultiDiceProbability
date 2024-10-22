@@ -5,9 +5,9 @@ from scipy.stats import binom
 import numpy
 
 def get_success_probability(num_blue, num_red, num_green, target_successes):
-    p_blue_success = 0.6  # Blue succeeds on 5+
-    p_red_success = 0.4   # Red succeeds on 7+
-    p_green_success = 0.8 # Green succeeds on 3+
+    p_blue_success = 0.5  # Blue succeeds on 6+
+    p_red_success = 0.7   # Red succeeds on 4+
+    p_green_success = 0.3 # Green succeeds on 8+
 
     total_dice = num_blue + num_red + num_green
     
@@ -31,16 +31,14 @@ def get_success_probability(num_blue, num_red, num_green, target_successes):
     return total_prob
 
 def dice_recommendation(success_prob, target_successes):
-    p_single_die_success = 0.5
-
-    def calc_required_dice(p_die_success, target_prob):
-        return math.ceil(math.log(1 - target_prob) / math.log(1 - p_die_success))
+    p_single_die_success = 0.5  # For a 6-sided die, success is on 4+
 
     recommended_dice = 0
     total_prob = 0
+
     while total_prob < success_prob:
         recommended_dice += 1
-        total_prob = sum(binom.pmf(k, recommended_dice, p_single_die_success) for k in range(target_successes, recommended_dice + 1))
+        total_prob = 1 - binom.cdf(target_successes - 1, recommended_dice, p_single_die_success)
 
     return recommended_dice
 
