@@ -38,15 +38,17 @@ The challenge is to calculate the probability of achieving **at least** a certai
 
 1. **Combination of Probabilities**: For each die, the outcome of success or failure is independent of the other dice. Therefore, for a given number of successes across multiple dice, we need to consider **all possible combinations** of successes and failures for the dice.
 
-2. **Binomial Distribution**: The probability of getting exactly \( k \) successes out of \( n \) trials, where each trial has a success probability \( p \), is modeled by the binomial distribution. The binomial probability mass function is given by:
-   \[
-   P(X = k) = \binom{n}{k} p^k (1 - p)^{n - k}
-   \]
+2. **Binomial Distribution**: 
+   The probability of getting exactly \( k \) successes out of \( n \) trials, where each trial has a success probability \( p \), is modeled by the binomial distribution. The binomial probability mass function is given by:
+   
+   **P(X = k) = C(n, k) * p^k * (1 - p)^(n - k)**
+
    Where:
    - \( P(X = k) \) is the probability of getting exactly \( k \) successes.
-   - \( \binom{n}{k} \) is the binomial coefficient, which gives the number of ways to choose \( k \) successes from \( n \) trials.
+   - \( C(n, k) \) is the binomial coefficient, which gives the number of ways to choose \( k \) successes from \( n \) trials.
    - \( p \) is the probability of success on a single trial.
    - \( n \) is the number of trials (in our case, the number of dice rolled).
+
 
 3. **Sum of Probabilities for Multiple Dice**: Since each type of die (blue, red, green) has a different probability of success, we can’t directly use the binomial distribution formula. Instead, we calculate the success and failure probabilities for each possible combination of dice results (using **all combinations of successes and failures**) and sum them to find the overall probability of achieving at least the target number of successes.
 
