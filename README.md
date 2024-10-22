@@ -16,7 +16,7 @@ This Python program calculates the probability of achieving a specified number o
 
 This program calculates the probability of getting a specific number of successes when rolling custom colored dice. Each color of die has a different threshold for success, and the program supports rolling a mix of blue, red, and green dice.
 
-Additionally, the program can recommend how many standard six-sided dice (where a success is defined as rolling 4+) you would need to roll in order to achieve the same success probability.
+Additionally, the program can recommend how many standard six-sided dice (at a user-selected probability level) you would need to roll in order to achieve the same success probability.
 
 ## Methodology
 
@@ -61,7 +61,7 @@ The challenge is to calculate the probability of achieving **at least** a certai
    - If you roll 1 blue die, 2 red dice, and 1 green die, and you want to know the probability of achieving at least 2 successes, the program computes the probabilities for every combination of success and failure for these dice and sums the relevant probabilities.
 
 2. **Recommendation for Six-Sided Dice**:
-   - To recommend the number of six-sided dice that should be rolled to achieve the same probability of success, the program assumes a **50% success rate** for each die (since success on a six-sided die is defined as rolling a 4 or higher).
+   - To recommend the number of six-sided dice that should be rolled to achieve the same probability of success.
    - It then calculates the number of dice needed to achieve the same overall probability of hitting at least the target number of successes using six-sided dice.
    - This part of the program uses an iterative method to find the smallest number of six-sided dice required to match or exceed the target success probability by summing the probabilities for different numbers of successes using the binomial distribution.
 
@@ -109,5 +109,5 @@ Enter the target number of successes: 2
 
 The probability of getting at least 2 successes with the colored dice is: 0.6964
 
-To achieve a similar probability with 6-sided dice (rolling 4+), you should roll approximately 4 dice.
+To achieve a similar probability with 6-sided dice (p=0.5), you should roll approximately 4 dice.
 ```

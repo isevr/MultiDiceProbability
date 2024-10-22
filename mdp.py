@@ -30,8 +30,8 @@ def get_success_probability(num_blue, num_red, num_green, target_successes):
 
     return total_prob
 
-def dice_recommendation(success_prob, target_successes):
-    p_single_die_success = 0.5  # For a 6-sided die, success is on 4+
+def dice_recommendation(success_prob, target_successes, p_d_six=0.5):
+    p_single_die_success = p_d_six  # variable success
 
     recommended_dice = 0
     total_prob = 0
@@ -43,6 +43,7 @@ def dice_recommendation(success_prob, target_successes):
     return recommended_dice
 
 def main():
+    d6_prob = float(input('Choose d6 success probability: '))
     while True:
         print("Enter the number of blue, red, and green dice you will roll:")
         num_blue = int(input("Number of blue dice: "))
@@ -67,8 +68,8 @@ def main():
         
         print(f"\nThe probability of getting at least {target_successes} successes with the colored dice is: {success_prob:.4f}")
 
-        recommended_dice = dice_recommendation(success_prob, target_successes)
-        print(f"\nTo achieve a similar probability with 6-sided dice (rolling 4+), you should roll approximately {recommended_dice} dice.")
+        recommended_dice = dice_recommendation(success_prob, target_successes, p_d_six=d6_prob)
+        print(f"\nTo achieve a similar probability with 6-sided dice (p={d6_prob}), you should roll approximately {recommended_dice} dice.")
         choice = str(input('Type "a" to run another calculation or "q"to quit: '))
 
         if choice == 'q':
