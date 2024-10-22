@@ -2,6 +2,7 @@ from itertools import product
 from math import comb
 import math
 from scipy.stats import binom
+import numpy
 
 def get_success_probability(num_blue, num_red, num_green, target_successes):
     p_blue_success = 0.6  # Blue succeeds on 5+
